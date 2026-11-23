@@ -30,4 +30,5 @@ npm run dev
 npm install -g firebase-tools
 firebase login
 firebase init hosting
-firebase deploy
+firebase deploy --only hosting
+
