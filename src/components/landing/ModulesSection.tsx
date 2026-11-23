@@ -103,7 +103,7 @@ export function ModulesSection() {
         <SectionHeader
           id="modulos-title"
           eyebrow="Ecossistema digital"
-          title="Módulos do programa"
+          title="Como o Programa Acontece"
           lead="Duas portas de entrada — o curso e a comunidade — e um instrumento que acompanha o educador da sensibilização à ação no território."
         />
 
