@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "leaflet/dist/leaflet.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -229,3 +230,20 @@
 @utility w-4\.5 {
   width: 1.125rem;
 }
+
+.ceurs-map { z-index: 0; font-family: var(--font-sans); }
+.ceurs-map-pin {
+  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; margin: 2px;
+  background: var(--primary); color: var(--primary-foreground);
+  border: 3px solid var(--card); border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg); box-shadow: var(--shadow-soft);
+}
+.ceurs-map-pin span { transform: rotate(45deg); font-size: 12px; font-weight: 800; }
+.ceurs-map .leaflet-popup-content-wrapper, .ceurs-map .leaflet-popup-tip {
+  background: var(--card); color: var(--card-foreground); box-shadow: var(--shadow-card);
+}
+.ceurs-map .leaflet-popup-content-wrapper { border-radius: 8px; }
+.ceurs-map .leaflet-popup-content p { margin: 0; }
+.ceurs-map .leaflet-popup-content a { color: var(--primary-foreground); }
+.ceurs-map .leaflet-control-zoom a { background: var(--card); color: var(--foreground); }

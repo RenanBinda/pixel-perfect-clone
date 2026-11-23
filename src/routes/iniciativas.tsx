@@ -1,19 +1,15 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
 import {
   ArrowRight,
-  MapPin,
-  School,
   Search,
   X,
 } from "lucide-react";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { IniciativaCard } from "@/components/smis/IniciativaCard";
-import { TemaBadge } from "@/components/smis/TemaBadge";
+import MapaLeaflet from "@/components/iniciativas/MapaLeaflet";
 import { Button } from "@/components/ui/button";
 import {
   MOCK_INICIATIVAS,
-  TEMA_ICON,
   TEMA_LABEL,
   type Iniciativa,
   type IniciativaTema,
@@ -48,22 +44,7 @@ function municipioDe(ini: Iniciativa): string {
   return m?.[1]?.trim().split(", ").pop() ?? "";
 }
 
-/* ============================================================
-   GRADE DO BRASIL (linha, coluna) — mapa estilizado
-   ============================================================ */
-
-const GRADE_UF: Record<string, [number, number]> = {
-  RR: [0, 2], AP: [0, 4],
-  AM: [1, 1], PA: [1, 3], MA: [1, 4], CE: [1, 5], RN: [1, 6],
-  AC: [2, 0], RO: [2, 1], TO: [2, 3], PI: [2, 4], PB: [2, 6],
-  MT: [3, 2], BA: [3, 4], PE: [3, 5], AL: [3, 6],
-  GO: [4, 3], DF: [4, 4], SE: [4, 5],
-  MS: [5, 2], MG: [5, 3], ES: [5, 4],
-  SP: [6, 3], RJ: [6, 4],
-  PR: [7, 2],
-  SC: [8, 2],
-  RS: [9, 2],
-};
+const UFS = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"];
 
 /* ============================================================
    ROTA
@@ -147,12 +128,6 @@ function IniciativasPage() {
     }
     return true;
   });
-
-  const porUf = publicadas.reduce<Record<string, number>>((acc, i) => {
-    const uf = ufDe(i);
-    acc[uf] = (acc[uf] ?? 0) + 1;
-    return acc;
-  }, {});
 
   const temFiltro = busca.q || busca.tema || busca.uf || busca.ods;
 
@@ -241,136 +216,7 @@ function IniciativasPage() {
         </section>
       )}
 
-      {/* Grid principal: mapa + lista */}
-      <div className="container-page grid gap-8 py-12 lg:grid-cols-[320px_1fr] lg:py-16">
-        {/* Sidebar: mapa */}
-        <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
-          <div className="rounded-2xl border border-line bg-card p-5 shadow-soft">
-            <h2 className="text-sm font-bold uppercase tracking-wider text-teal">
-              Mapa por estado
-            </h2>
-            <p className="mt-1 text-[13px] text-muted-foreground">
-              Clique em um estado para filtrar
-            </p>
-            <div
-              className="mt-4 grid grid-cols-7 gap-1"
-              role="group"
-              aria-label="Filtrar por estado"
-            >
-              {Object.entries(GRADE_UF).map(([uf, [r, c]]) => {
-                const n = porUf[uf] ?? 0;
-                const ativo = busca.uf === uf;
-                return (
-                  <button
-                    key={uf}
-                    type="button"
-                    style={{ gridRow: r + 1, gridColumn: c + 1 }}
-                    disabled={n === 0}
-                    onClick={() => set({ uf: ativo ? "" : uf })}
-                    aria-pressed={ativo}
-                    title={`${uf}: ${n} iniciativa(s)`}
-                    className={`aspect-square rounded text-[10px] font-bold transition-colors ${
-                      ativo
-                        ? "bg-navy text-secondary-foreground"
-                        : n > 0
-                          ? "bg-teal/20 text-teal-900 hover:bg-navy hover:text-secondary-foreground"
-                          : "bg-soft text-muted-foreground/40"
-                    }`}
-                  >
-                    {uf}
-                  </button>
-                );
-              })}
-            </div>
-            <p className="mt-4 text-[12px] text-muted-foreground">
-              Estados destacados têm iniciativas publicadas.
-            </p>
-          </div>
-
-          {temFiltro && (
-            <div className="rounded-2xl border border-line bg-card p-5 shadow-soft">
-              <p className="text-xs font-bold uppercase tracking-wider text-teal">
-                Filtros ativos
-              </p>
-              <ul className="mt-3 space-y-2 text-sm">
-                {busca.q && (
-                  <li className="flex items-center justify-between gap-2">
-                    <span className="truncate text-muted-foreground">
-                      Busca: <b className="text-navy">{busca.q}</b>
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => set({ q: "" })}
-                      className="shrink-0 rounded p-1 text-muted-foreground hover:bg-soft hover:text-navy"
-                      aria-label="Remover busca"
-                    >
-                      <X className="h-3.5 w-3.5" />
-                    </button>
-                  </li>
-                )}
-                {busca.tema && (
-                  <li className="flex items-center justify-between gap-2">
-                    <span className="truncate text-muted-foreground">
-                      Tema:{" "}
-                      <b className="text-navy">
-                        {TEMA_LABEL[busca.tema as IniciativaTema]}
-                      </b>
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => set({ tema: "" })}
-                      className="shrink-0 rounded p-1 text-muted-foreground hover:bg-soft hover:text-navy"
-                      aria-label="Remover tema"
-                    >
-                      <X className="h-3.5 w-3.5" />
-                    </button>
-                  </li>
-                )}
-                {busca.uf && (
-                  <li className="flex items-center justify-between gap-2">
-                    <span className="truncate text-muted-foreground">
-                      UF: <b className="text-navy">{busca.uf}</b>
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => set({ uf: "" })}
-                      className="shrink-0 rounded p-1 text-muted-foreground hover:bg-soft hover:text-navy"
-                      aria-label="Remover UF"
-                    >
-                      <X className="h-3.5 w-3.5" />
-                    </button>
-                  </li>
-                )}
-                {busca.ods && (
-                  <li className="flex items-center justify-between gap-2">
-                    <span className="truncate text-muted-foreground">
-                      ODS: <b className="text-navy">{busca.ods}</b>
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => set({ ods: "" })}
-                      className="shrink-0 rounded p-1 text-muted-foreground hover:bg-soft hover:text-navy"
-                      aria-label="Remover ODS"
-                    >
-                      <X className="h-3.5 w-3.5" />
-                    </button>
-                  </li>
-                )}
-              </ul>
-              <Button
-                variant="outline"
-                size="sm"
-                className="mt-4 w-full"
-                onClick={() =>
-                  set({ q: undefined, tema: undefined, uf: undefined, ods: undefined })
-                }
-              >
-                <X className="mr-1 h-3.5 w-3.5" /> Limpar todos
-              </Button>
-            </div>
-          )}
-        </aside>
-
+      <div className="container-page py-12 lg:py-16">
         {/* Conteúdo principal */}
         <div>
           {/* Filtros */}
@@ -407,7 +253,7 @@ function IniciativasPage() {
               className={selectCls}
             >
               <option value="">Todos os estados</option>
-              {Object.keys(GRADE_UF)
+              {UFS
                 .sort()
                 .map((uf) => (
                   <option key={uf} value={uf}>
@@ -430,6 +276,8 @@ function IniciativasPage() {
               ))}
             </select>
           </div>
+
+          <MapaLeaflet iniciativas={filtradas} filtrado={Boolean(temFiltro)} />
 
           {/* Resultado */}
           <div className="mt-6 flex items-center justify-between text-sm text-muted-foreground">

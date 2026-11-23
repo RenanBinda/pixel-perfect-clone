@@ -14,3 +14,4 @@
 - Landing path content uses a validated shared schema and route-loaded Query cache; profile-specific publication is stored in Cloud with optimistic revisions so edits do not overwrite another editor's work.
 - Content publication requires a server-verified administrative code and a short-lived signed httpOnly cookie; client persona selection and existing role guards never authorize writes.
 - Keep the existing visitor account client separate from the content database integration; enabling content persistence must not migrate existing users or change their sign-in system.
+- Initiative maps dynamically import Leaflet inside an effect and use keyless OpenStreetMap tiles; group identical coordinates and never invent locations for records without coordinates, so SSR stays safe and pins are honest.
