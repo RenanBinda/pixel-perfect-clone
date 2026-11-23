@@ -21,4 +21,13 @@ git clone <this-repository-url>
 cd <repository-name>
 npm i
 npm run dev
-```
+``
+
+
+ npm install vite --save-dev   
+npm aduit fix --force   
+npm run dev       
+npm install -g firebase-tools
+firebase login
+firebase init hosting
+firebase deploy
