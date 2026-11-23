@@ -26,7 +26,10 @@ npm run dev
 
  npm install vite --save-dev   
 npm aduit fix --force   
-npm run dev       
+npm run dev
+
+
+Projeto agora roda pelo cloudflare - nada mais no firebase. Ainda usa Supabase
 npm install -g firebase-tools
 firebase login
 firebase init hosting
