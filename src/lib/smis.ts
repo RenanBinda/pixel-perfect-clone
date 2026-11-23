@@ -126,13 +126,7 @@ export const MOCK_INICIATIVAS: Iniciativa[] = [
     autor: "Maria Clara Andrade",
     dataCriacao: "2026-03-15",
     dataAtualizacao: "2026-10-20",
-<<<<<<< HEAD
-    imagemCapa: "/assets/iniciativas/horta-sementes-do-amanha.jpg",
-    coordenadas: [-27.5954, -48.548],
-    localizacaoMapa: "Florianópolis/SC · localização aproximada",
-=======
     imagemCapa: hortaImg,
->>>>>>> 3102630 (alteracoes locais no vscode)
     what: "Uma horta comunitária com 12 canteiros de hortaliças e ervas medicinais, composteira de 1,5 m³ e sistema de irrigação por gotejamento.",
     why: "Promover educação alimentar, reduzir os resíduos orgânicos da merenda e fortalecer os vínculos entre a escola e as famílias.",
     who: "Cerca de 200 estudantes do 4º ao 9º ano, famílias voluntárias, professores de ciências e equipe de coordenação.",
@@ -178,13 +172,7 @@ export const MOCK_INICIATIVAS: Iniciativa[] = [
     autor: "Carla Mendes",
     dataCriacao: "2026-06-10",
     dataAtualizacao: "2026-09-15",
-<<<<<<< HEAD
-    imagemCapa: "/assets/iniciativas/captacao-agua.jpg",
-    coordenadas: [-23.5505, -46.6333],
-    localizacaoMapa: "São Paulo/SP · localização aproximada",
-=======
     imagemCapa: captacaoImg,
->>>>>>> 3102630 (alteracoes locais no vscode)
     what: "Dois reservatórios de 1.000 L conectados às calhas do telhado.",
     why: "Reduzir o consumo de água tratada em até 30% na irrigação.",
     who: "Equipe de manutenção, professores de geografia e estudantes do 8º ano.",
@@ -253,13 +241,7 @@ export const MOCK_INICIATIVAS: Iniciativa[] = [
     autor: "Carla Mendes",
     dataCriacao: "2026-05-18",
     dataAtualizacao: "2026-09-30",
-<<<<<<< HEAD
-    imagemCapa: "/assets/iniciativas/jardim-polinizadores.jpg",
-    coordenadas: [-23.5505, -46.6333],
-    localizacaoMapa: "São Paulo/SP · localização aproximada",
-=======
     imagemCapa: polinizadoresImg,
->>>>>>> 3102630 (alteracoes locais no vscode)
     what: "Canteiro de 20 m² com plantas nativas e hotel de insetos.",
     why: "Educar para a biodiversidade e recuperar polinizadores no bairro.",
     who: "Estudantes do 3º ano, professores de biologia e famílias voluntárias.",
