@@ -1,0 +1,54 @@
+{
+  "name": "CEURS–Escolas",
+  "short_name": "CEURS",
+  "description": "Plataforma de formação de Agentes Locais de Sustentabilidade — CEURS–Escolas.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F5F8F7",
+  "theme_color": "#0A3153",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["education", "productivity", "government"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Entrar",
+      "short_name": "Login",
+      "url": "/login",
+      "description": "Acessar a plataforma"
+    },
+    {
+      "name": "Inscrever-se",
+      "short_name": "Inscrever",
+      "url": "/solicitar-acesso",
+      "description": "Solicitar convite de acesso"
+    },
+    {
+      "name": "SMIS-Escolas",
+      "short_name": "SMIS",
+      "url": "/smis",
+      "description": "Mapear iniciativas de sustentabilidade"
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   TEMA CEURS–ESCOLAS
+   Paleta conforme Mini-manual de Cor e Tipografia
+   - Deep Navy: estrutura
+   - Active Teal: progresso
+   - Vibrant Orange: ação
+   - Warm Amber: apoio
+   - Soft White: respiro
+   Regra 60/30/10 aplicada em toda a UI.
+   ============================================================ */
+
+@theme inline {
+  /* Tipografia */
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  /* Raios */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  /* Tokens shadcn (compatibilidade) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Tokens CEURS (identidade do projeto) */
+  --color-navy: var(--navy);
+  --color-teal: var(--teal);
+  --color-orange: var(--orange);
+  --color-amber: var(--amber);
+  --color-soft: var(--soft);
+  --color-ink: var(--ink);
+  --color-line: var(--line);
+  --color-sky: var(--sky);
+
+  /* Sombras */
+  --shadow-soft: 0 4px 14px -6px color-mix(in oklab, var(--navy) 18%, transparent);
+  --shadow-card: 0 14px 30px -14px color-mix(in oklab, var(--navy) 28%, transparent);
+  --shadow-hero: 0 30px 60px -24px color-mix(in oklab, var(--navy) 55%, transparent);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Cores CEURS em OKLCH (perceptualmente uniformes) */
+  --navy: #3B2854;      /* Roxo Índigo Profundo */
+  --teal: #4A6B82;       /* Azul Ardósia Suave */
+  --orange: #D85838;     /* Coral Terracota */
+  --amber: #E8A87C;      /* Terracota claro (apoio) */
+  --soft: #F8F7FA;       /* Off-White Areia */
+  --ink: #221D29;        /* Grafite Violáceo */
+  --line: #E2DEE8;
+  --sky: #D3DCE4;
+
+  /* Mapeamento shadcn */
+  --background: var(--soft);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+  --primary: var(--orange);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: var(--navy);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: #EFEDF3;
+  --muted-foreground: #5E5868;
+  --accent: #E7ECF1;
+  --accent-foreground: var(--navy);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--orange);
+}
+
+.dark {
+  /* Modo escuro (opcional, ativável via classe .dark) */
+  --background: oklch(0.2 0.04 300);
+  --foreground: oklch(0.97 0.004 170);
+  --card: oklch(0.24 0.04 300);
+  --card-foreground: oklch(0.97 0.004 170);
+  --popover: oklch(0.24 0.04 300);
+  --popover-foreground: oklch(0.97 0.004 170);
+  --primary: var(--orange);
+  --primary-foreground: oklch(0.2 0.04 300);
+  --secondary: oklch(0.97 0.004 170);
+  --secondary-foreground: oklch(0.2 0.04 300);
+  --muted: oklch(0.3 0.03 300);
+  --muted-foreground: oklch(0.7 0.02 230);
+  --accent: oklch(0.3 0.03 300);
+  --accent-foreground: oklch(0.97 0.004 170);
+  --border: oklch(0.34 0.03 300);
+  --input: oklch(0.34 0.03 300);
+  --ring: var(--orange);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--orange) !important;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Scrollbar discreta e alinhada à paleta */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--soft);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--navy) 25%, transparent);
+    border-radius: 6px;
+    border: 2px solid var(--soft);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in oklab, var(--navy) 45%, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  @media print {
+    body { background: #fff; color: #000; }
+    .no-print { display: none !important; }
+  }
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+
+@utility eyebrow {
+  font-size: 0.6875rem; /* 11px — alinhado ao mini-manual */
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) { padding-inline: 2rem; }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility text-pretty {
+  text-wrap: pretty;
+}
+
+@utility text-amber-600 {
+  color: oklch(0.62 0.16 70);
+}
+
+@utility h-4\.5 {
+  height: 1.125rem;
+}
+
+@utility w-4\.5 {
+  width: 1.125rem;
+}
