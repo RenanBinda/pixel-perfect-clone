@@ -12,6 +12,14 @@
 /* ============================================================
    TIPOS
    ============================================================ */
+import hortaImg from "@/assets/horta.jpg";
+import compostagemImg from "@/assets/compostagem.jpg";
+import captacaoImg from "@/assets/captacao.webp";
+import polinizadoresImg from "@/assets/polinizadores.jpg";
+import mobilidadeImg from "@/assets/mobilidade.avif";
+import energiaImg from "@/assets/energia.jpeg";
+
+
 
 export type IniciativaStatus = "rascunho" | "publicada" | "arquivada";
 
@@ -118,9 +126,13 @@ export const MOCK_INICIATIVAS: Iniciativa[] = [
     autor: "Maria Clara Andrade",
     dataCriacao: "2026-03-15",
     dataAtualizacao: "2026-10-20",
+<<<<<<< HEAD
     imagemCapa: "/assets/iniciativas/horta-sementes-do-amanha.jpg",
     coordenadas: [-27.5954, -48.548],
     localizacaoMapa: "Florianópolis/SC · localização aproximada",
+=======
+    imagemCapa: hortaImg,
+>>>>>>> 3102630 (alteracoes locais no vscode)
     what: "Uma horta comunitária com 12 canteiros de hortaliças e ervas medicinais, composteira de 1,5 m³ e sistema de irrigação por gotejamento.",
     why: "Promover educação alimentar, reduzir os resíduos orgânicos da merenda e fortalecer os vínculos entre a escola e as famílias.",
     who: "Cerca de 200 estudantes do 4º ao 9º ano, famílias voluntárias, professores de ciências e equipe de coordenação.",
@@ -143,7 +155,7 @@ export const MOCK_INICIATIVAS: Iniciativa[] = [
     autor: "João Pedro Silva",
     dataCriacao: "2026-07-22",
     dataAtualizacao: "2026-09-28",
-    imagemCapa: "/assets/iniciativas/compostagem.jpg",
+    imagemCapa: compostagemImg,
     what: "Uma composteira de 1,5 m³ para resíduos vegetais da merenda.",
     why: "Reduzir em 40% o volume de resíduos orgânicos enviados ao aterro.",
     who: "Equipe de serviço, professores de ciências e estudantes do 6º ano.",
@@ -166,9 +178,13 @@ export const MOCK_INICIATIVAS: Iniciativa[] = [
     autor: "Carla Mendes",
     dataCriacao: "2026-06-10",
     dataAtualizacao: "2026-09-15",
+<<<<<<< HEAD
     imagemCapa: "/assets/iniciativas/captacao-agua.jpg",
     coordenadas: [-23.5505, -46.6333],
     localizacaoMapa: "São Paulo/SP · localização aproximada",
+=======
+    imagemCapa: captacaoImg,
+>>>>>>> 3102630 (alteracoes locais no vscode)
     what: "Dois reservatórios de 1.000 L conectados às calhas do telhado.",
     why: "Reduzir o consumo de água tratada em até 30% na irrigação.",
     who: "Equipe de manutenção, professores de geografia e estudantes do 8º ano.",
@@ -191,7 +207,7 @@ export const MOCK_INICIATIVAS: Iniciativa[] = [
     autor: "Maria Clara Andrade",
     dataCriacao: "2026-09-20",
     dataAtualizacao: "2026-10-10",
-    imagemCapa: "/assets/iniciativas/mobilidade.jpg",
+    imagemCapa: mobilidadeImg,
     what: "Mapeamento colaborativo de rotas seguras casa-escola.",
     why: "Reduzir o uso de carro e promover autonomia dos estudantes.",
     who: "Estudantes, famílias, associação de moradores e guarda municipal.",
@@ -214,7 +230,7 @@ export const MOCK_INICIATIVAS: Iniciativa[] = [
     autor: "João Pedro Silva",
     dataCriacao: "2026-10-02",
     dataAtualizacao: "2026-10-12",
-    imagemCapa: "/assets/iniciativas/energia-solar.jpg",
+    imagemCapa: energiaImg,
     what: "Sistema fotovoltaico de 2 kWp instalado no telhado da cantina.",
     why: "Reduzir a conta de energia e usar a instalação como laboratório vivo.",
     who: "Direção, professores de física e equipe administrativa.",
@@ -237,9 +253,13 @@ export const MOCK_INICIATIVAS: Iniciativa[] = [
     autor: "Carla Mendes",
     dataCriacao: "2026-05-18",
     dataAtualizacao: "2026-09-30",
+<<<<<<< HEAD
     imagemCapa: "/assets/iniciativas/jardim-polinizadores.jpg",
     coordenadas: [-23.5505, -46.6333],
     localizacaoMapa: "São Paulo/SP · localização aproximada",
+=======
+    imagemCapa: polinizadoresImg,
+>>>>>>> 3102630 (alteracoes locais no vscode)
     what: "Canteiro de 20 m² com plantas nativas e hotel de insetos.",
     why: "Educar para a biodiversidade e recuperar polinizadores no bairro.",
     who: "Estudantes do 3º ano, professores de biologia e famílias voluntárias.",
