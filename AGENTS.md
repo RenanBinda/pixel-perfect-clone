@@ -15,3 +15,4 @@
 - Content publication requires a server-verified administrative code and a short-lived signed httpOnly cookie; client persona selection and existing role guards never authorize writes.
 - Keep the existing visitor account client separate from the content database integration; enabling content persistence must not migrate existing users or change their sign-in system.
 - Initiative maps dynamically import Leaflet inside an effect and use keyless OpenStreetMap tiles; group identical coordinates and never invent locations for records without coordinates, so SSR stays safe and pins are honest.
+- Keep documentary meeting and execution-stage references in a browser-safe shared module; label proposed contracts separately from deployed services so the admin history and technical documentation stay consistent without implying new backend functionality.

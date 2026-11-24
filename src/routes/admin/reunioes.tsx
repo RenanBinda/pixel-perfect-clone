@@ -2,6 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CalendarClock, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import { requireRole } from "@/lib/admin-access.functions";
+import { REUNIAO_3 } from "@/lib/platform-reference";
+import { Link } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 export const Route = createFileRoute("/admin/reunioes")({
   beforeLoad: async () => {
@@ -34,6 +38,7 @@ type Reuniao = {
 };
 
 const REUNIOES: Reuniao[] = [
+  REUNIAO_3,
   {
     id: "r1",
     titulo: "Reunião 1 · Arquitetura de produto e redução de cliques",
@@ -99,7 +104,7 @@ const REUNIOES: Reuniao[] = [
 function Bloco({ titulo, itens }: { titulo: string; itens: string[] }) {
   if (!itens.length) return null;
   return (
-    <div className="rounded-xl border border-border bg-card p-5">
+    <div className="border-t border-border py-5">
       <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-primary">{titulo}</h3>
       <ul className="space-y-2 text-sm text-foreground/90">
         {itens.map((i) => (
@@ -114,9 +119,9 @@ function Bloco({ titulo, itens }: { titulo: string; itens: string[] }) {
 }
 
 function ReunioesPage() {
-  const [ativa, setAtiva] = useState("r2");
+  const [ativa, setAtiva] = useState("r3");
   const [busca, setBusca] = useState("");
-  const r = REUNIOES.find((x) => x.id === ativa)!;
+  const r = REUNIOES.find((x) => x.id === ativa) ?? REUNIAO_3;
   const f = useMemo(() => {
     const q = busca.trim().toLowerCase();
     const filt = (l: string[]) => (q ? l.filter((s) => s.toLowerCase().includes(q)) : l);
@@ -132,24 +137,24 @@ function ReunioesPage() {
         </div>
         <h1 className="text-3xl font-bold text-foreground">Histórico de reuniões</h1>
         <p className="text-muted-foreground">Decisões, impactos na plataforma e pendências de cada reunião.</p>
+        <p className="text-sm text-muted-foreground">Os registros anteriores preservam o contexto da época; a Reunião 3 e o plano integrado orientam a próxima execução.</p>
+        <Button asChild variant="outline"><Link to="/admin/documentacao" hash="plano-execucao">Consultar plano de execução</Link></Button>
       </header>
 
-      <div role="tablist" className="flex flex-wrap gap-2">
+      <Tabs value={ativa} onValueChange={setAtiva}>
+      <TabsList aria-label="Selecionar reunião" className="h-auto flex-wrap justify-start gap-1">
         {REUNIOES.map((x) => (
-          <button
+          <TabsTrigger
             key={x.id}
-            role="tab"
-            aria-selected={x.id === ativa}
-            onClick={() => setAtiva(x.id)}
-            className={`rounded-full border px-4 py-2 text-sm transition ${x.id === ativa ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card text-foreground hover:border-primary"}`}
+            value={x.id}
           >
             {x.titulo.split(" · ")[0]}
-          </button>
+          </TabsTrigger>
         ))}
-      </div>
+      </TabsList>
 
-      <section role="tabpanel" className="space-y-4">
-        <div className="rounded-xl border border-border bg-muted/40 p-5">
+      <TabsContent value={ativa} className="mt-6 space-y-4">
+        <div className="border-l-4 border-primary pl-5">
           <h2 className="text-xl font-semibold text-foreground">{r.titulo}</h2>
           <p className="mt-1 text-xs text-muted-foreground">Fonte: {r.fonte} · Participantes: {r.participantes}</p>
           <p className="mt-3 text-sm text-foreground/90">{r.resumo}</p>
@@ -157,6 +162,7 @@ function ReunioesPage() {
         <label className="flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2">
           <Search className="h-4 w-4 text-muted-foreground" />
           <input
+            aria-label="Buscar nesta reunião"
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
             placeholder="Buscar nesta reunião…"
@@ -168,7 +174,9 @@ function ReunioesPage() {
           <Bloco titulo="Impactos na plataforma" itens={f.impactos} />
           <Bloco titulo="Pendências" itens={f.pendencias} />
         </div>
-      </section>
+        {!f.decisoes.length && !f.impactos.length && !f.pendencias.length && <p className="text-sm text-muted-foreground">Nenhum registro encontrado nesta reunião.</p>}
+      </TabsContent>
+      </Tabs>
     </div>
   );
 }

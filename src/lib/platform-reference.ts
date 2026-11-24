@@ -1,0 +1,85 @@
+/** Documentary reference only: these records do not grant permissions or implement module services. */
+export const REUNIAO_3 = {
+  id: "r3",
+  titulo: "Reunião 3 · Orquestração do ecossistema e governança",
+  fonte: "Reunião_3_ceurs.m4a · 2h 17min · registro em 24/11/2026",
+  participantes: "Renan Binda e Roberto Padrão (coordenação), conforme síntese da gravação",
+  resumo: "O Landing Place acolhe, contextualiza e encaminha; curso, SMIS e AWA2030 executam seus próprios serviços. Registro de síntese baseado na análise da gravação compartilhada, não transcrição literal nem ata homologada. As decisões devem ser lidas em conjunto com o livro e o protótipo index_8.html.",
+  decisoes: [
+    "Regra de não-sombra: o portal não duplica cadastros, ferramentas de planejamento, matrícula ou fóruns dos módulos operacionais.",
+    "Cinco frentes de apresentação: capa institucional, mídia/notícias, curso CCA2030, instrumento SMIS e comunidade AWA2030.",
+    "A capa apresenta propósito, visão, governança e orientação por objetivo: diretor, responsável ou participante de iniciativa, interessado em conhecer/apoiar.",
+    "Ação é uma prática identificada; iniciativa é seu registro formal no SMIS; caso é documentação aprofundada com evidências; comunidade é espaço de troca e coprodução.",
+    "Direção confirma o responsável pela iniciativa. Descoberta na web e preenchimento completo não substituem validação institucional.",
+    "Duas camadas de identidade: perfil de serviço no portal e atribuições locais em cada módulo; a escolha de persona nunca concede permissões.",
+    "Taxonomia evolutiva: termos podem ser sugeridos e debatidos no AWA2030, com revisão antes de entrar na classificação oficial.",
+    "Acessibilidade e semântica são requisitos para pessoas e interoperabilidade; agentes de IA permanecem sujeitos a autorização e revisão humana.",
+  ],
+  impactos: [
+    "Etapa 1: esta reunião e o plano integrado passam a ser consultáveis na administração.",
+    "Etapa 2: reorganizar a capa e as páginas de apresentação, sem duplicar os serviços dos módulos.",
+    "Etapas 3 e 4: preparar catálogo de escolas, vínculos confirmados e classificação governada.",
+    "Etapa 5: alinhar 5W2H, Project Canvas e Program Canvas ao livro, preservando o SMIS como responsável operacional.",
+    "Etapas 6 e 7: distinguir casos verificados de ações candidatas; agentes sugerem, pessoas validam.",
+  ],
+  pendencias: [
+    "Homologar esta síntese com a coordenação e confirmar responsáveis por módulo.",
+    "Acordar com a equipe Python identidade, contratos, fonte de dados e autorização no SMIS.",
+    "Definir com as equipes Moodle/AWA2030 acesso, retorno ao portal e papéis locais.",
+    "Conferir na fonte INEP os números citados no protótipo antes de publicá-los como indicadores oficiais.",
+    "Resolver divergência de quatro dimensões no HTML para cinco no livro; preservar a dimensão Cultural.",
+    "Definir regras institucionais e jurídicas de validação; a plataforma não confere fé pública automaticamente.",
+  ],
+};
+
+export const ETAPAS_EXECUCAO = [
+  {
+    numero: 1, titulo: "Memória e documentação", status: "Documentada nesta entrega",
+    objetivo: "Consolidar livro, Reunião 3 e protótipo como referência rastreável para a equipe.",
+    entregas: ["Histórico da Reunião 3 preservando reuniões anteriores.", "Definições, fluxos, entidades propostas, contratos de integração e plano de execução no Admin."],
+    aceite: "Reunião e sete etapas consultáveis; pesquisa e navegação verificadas; propostas diferenciadas de serviços ativos.",
+    dependencia: "Homologação conceitual pela coordenação antes de mudanças nos serviços.",
+  },
+  {
+    numero: 2, titulo: "Capa institucional e orientação", status: "Planejada",
+    objetivo: "Acolher cada perfil e encaminhar para o serviço certo sem reproduzir as ferramentas dos módulos.",
+    entregas: ["Revisar capa, Por onde começar e personalização de quem está logado.", "Revisar /curso, /smis e /awa como apresentações; preservar o editor dos Caminhos.", "Exibir governança e indicadores somente com fonte, data e aprovação institucional."],
+    aceite: "Cada perfil encontra um destino coerente; nenhuma chamada de matrícula ou acesso promete integração inexistente; conferência móvel e desktop.",
+    dependencia: "Textos institucionais aprovados e URLs oficiais dos três módulos.",
+  },
+  {
+    numero: 3, titulo: "Catálogo de escolas e vínculos", status: "Planejada",
+    objetivo: "Reconhecer escolas por código INEP e confirmar responsabilidades sem conceder acesso pela autodeclaração.",
+    entregas: ["Catálogo /escolas com nome, código, município, UF, rede e fonte/ano da base.", "Vínculo solicitado, em revisão, confirmado ou revogado com evidências e trilha de auditoria.", "Direção indica responsável; convite expira, tem uso único e pré-vínculo validado no serviço responsável."],
+    aceite: "Busca retorna escola identificável; convite confirmado pode ser aceito uma vez; pessoa não autorizada não confirma vínculos; simulações identificadas.",
+    dependencia: "Base INEP licenciada/validada, provedor de identidade acordado, regras de direção e serviço de convite/e-mail.",
+  },
+  {
+    numero: 4, titulo: "Taxonomia e folksonomia governada", status: "Planejada",
+    objetivo: "Classificar sem criar ranking de valor e permitir evolução com revisão coletiva.",
+    entregas: ["Cinco dimensões DLS e oito categorias temáticas do livro, com descritores, ODS e exemplos.", "Proposta de termo → debate no AWA2030 → revisão → publicação versionada.", "Filtros da vitrine por dimensão e categoria; comparação territorial sem inventar coordenadas."],
+    aceite: "Dimensão Cultural presente; categorias principal e secundárias preservadas; sugestão não aparece como termo oficial antes de aprovação.",
+    dependencia: "Responsável editorial, vocabulário inicial homologado e contrato de moderação com AWA2030.",
+  },
+  {
+    numero: 5, titulo: "SMIS e percurso IPP", status: "Planejada",
+    objetivo: "Descrever, selecionar e planejar com fidelidade ao livro, no módulo responsável.",
+    entregas: ["5W2H com sete campos e completude 0–7; metadados e validação institucional separados.", "Project Canvas Mínimo com dez fatores e Complementar com os fatores adicionais do livro.", "Program Canvas para projetos relacionados, governança e benefícios comuns; evolução opcional.", "Persistência, revisão, evidências, autoria e publicação no SMIS; portal integra leitura/encaminhamento."],
+    aceite: "Salvar e reabrir mantém dados; completude conta apenas sete campos; evoluir não apaga a origem; autorização conferida pelo serviço, não pela persona.",
+    dependencia: "Contrato Python, modelo de dados e campos completos dos Canvas homologados; não duplicar o SMIS no portal.",
+  },
+  {
+    numero: 6, titulo: "Mídia, casos e coprodução", status: "Planejada",
+    objetivo: "Inspirar com fontes confiáveis e apoiar parcerias sem transformar exemplos didáticos em casos reais.",
+    entregas: ["Mídia com fonte, autoria, data, autorização de imagem e escola vinculada quando comprovada.", "Biblioteca separa caso verificado, ação candidata e exemplo hipotético do livro.", "Instrumentos de coprodução: diagnóstico de interação, capacidades/matriz de atores, aproximação, acordo mínimo e saúde da parceria.", "Encaminhar debates, equipes e recursos compartilhados ao AWA2030; recomendações regionais só com localização válida."],
+    aceite: "Cada caso tem evidência rastreável; conteúdo não autorizado não é público; instrumentos seguem o livro e não replicam fóruns no portal.",
+    dependencia: "Curadoria, direitos de uso, política de proteção de menores e serviços de comunidade.",
+  },
+  {
+    numero: 7, titulo: "Agentes de IA supervisionados", status: "Planejada",
+    objetivo: "Reduzir esforço de descoberta e registro sem automatizar decisões institucionais.",
+    entregas: ["P1: descobridor de ações, apoio à verificação de vínculos e assistente 5W2H.", "P2: classificador DLS/ODS, orientador de aprendizagem e conector de comunidades.", "Primeiro demonstração identificada; depois pilotos reais com fontes, custos, consentimento, revisão e auditoria."],
+    aceite: "Respostas distinguem fonte de inferência; lacunas são sinalizadas; IA não autentica, concede papel nem publica; usuário pode revisar e rejeitar sugestões.",
+    dependencia: "Serviços/base confiáveis das etapas anteriores, autorização de fontes e orçamento de operação dos agentes.",
+  },
+];
