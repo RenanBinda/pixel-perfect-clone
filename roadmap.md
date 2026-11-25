@@ -1,8 +1,9 @@
 # Edição dos Caminhos
 # Plano integrado · Etapa 1
-- [ ] Registrar a Reunião 3 com fontes, decisões e pontos a validar, preservando as reuniões anteriores.
-- [ ] Disponibilizar na documentação administrativa fundamentos, fluxos, modelo de dados proposto, contratos e sete etapas com critérios de entrega.
-- [ ] Conferir navegação, pesquisa, acesso protegido e leitura no painel administrativo.
+- [x] Registrar a Reunião 3 com fontes, decisões e pontos a validar, preservando as reuniões anteriores.
+- [x] Disponibilizar na documentação administrativa fundamentos, fluxos, modelo de dados proposto, contratos e sete etapas com critérios de entrega.
+- [x] Bloqueio sem sessão verificado por teste e navegador.
+- [ ] Leitura com conta Master: aguarda acesso funcional da conta Master na visualização.
 
 ## Histórico de entregas anteriores
 - [x] Mapa interativo público com pins, filtros e conferência desktop/mobile; abertura do detalhe e quatro testes verificados.
